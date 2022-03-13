@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VentaXProd" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="910b985b-e276-4a63-91be-ba69b46b8591">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="300"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="695"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ELMezquite"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT det_orden.idmenu,
+	menu.`descripcionMenu`,
+	sum( det_orden.cantidad) AS vendidos
+FROM menu
+	INNER JOIN det_orden ON 
+	 det_orden.idmenu = menu.idmenu 
+	INNER JOIN ordenes ON 
+	 ordenes.`idOrdenes` = det_orden.`idOrdenes` 
+GROUP BY det_orden.idmenu
+ORDER BY vendidos DESC]]>
+	</queryString>
+	<field name="idmenu" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="idMenu"/>
+		<property name="com.jaspersoft.studio.field.label" value="idmenu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="det_orden"/>
+	</field>
+	<field name="descripcionMenu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="descripcionMenu"/>
+		<property name="com.jaspersoft.studio.field.label" value="descripcionMenu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="menu"/>
+	</field>
+	<field name="vendidos" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="vendidos"/>
+		<property name="com.jaspersoft.studio.field.label" value="vendidos"/>
+	</field>
+	<group name="idmenu">
+		<groupExpression><![CDATA[$F{idmenu}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="13" width="280" height="33" uuid="33a56533-f85d-4d4a-89be-f51710f07fe3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Restaurante "El Mezquite"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="46" width="300" height="22" uuid="01467439-c98f-4d0a-b45f-d40e79f0a7ba"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Productos de Mayor Venta]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="28" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="20" uuid="e963f40b-82b3-4c42-872d-7ac954867dec">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="74be32c0-d1a8-49b6-8394-937bc12e4c21"/>
+				</reportElement>
+				<text><![CDATA[Clave]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="180" height="20" uuid="3908cfae-23eb-47fa-b7ff-df134296d779">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b5aa9cc-2ab0-4b45-b303-e49c970e5a3e"/>
+				</reportElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="-1" width="50" height="20" uuid="1aa52589-92bb-4581-a0f7-3bf2a966080a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a71938f8-c66e-42fa-8ccd-2cfac251f375"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="74ff24cd-c3ad-4578-9211-97e65470891c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="74be32c0-d1a8-49b6-8394-937bc12e4c21"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{idmenu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="180" height="20" uuid="94a0ceee-9ca0-406b-b98e-7745c976167d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b5aa9cc-2ab0-4b45-b303-e49c970e5a3e"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{descripcionMenu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="293" y="0" width="60" height="20" uuid="92e3172e-7be0-475d-93af-11684b30a02b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a71938f8-c66e-42fa-8ccd-2cfac251f375"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{vendidos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

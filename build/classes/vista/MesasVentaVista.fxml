@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="499.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MesasVentaController">
+   <children>
+      <TableView fx:id="tvOrdenes" layoutX="8.0" layoutY="61.0" prefHeight="372.0" prefWidth="816.0">
+         <columns>
+            <TableColumn fx:id="colIdMesa" prefWidth="40.0" text="Mesa" />
+            <TableColumn fx:id="colCantClientes" prefWidth="60.0" text="CantClientes" visible="false" />
+            <TableColumn fx:id="colCliente" prefWidth="50.0" text="Cliente" />
+            <TableColumn fx:id="colClave" prefWidth="75.0" text="Clave" visible="false" />
+            <TableColumn fx:id="colPlatillo" prefWidth="200.0" text="Platillo o Bebida" />
+            <TableColumn fx:id="colPrecio" prefWidth="40.0" text="Precio" />
+            <TableColumn fx:id="colCantidad" prefWidth="60.0" text="Cantidad" />
+            <TableColumn fx:id="colImporte" prefWidth="50.0" text="Importe" />
+            <TableColumn fx:id="colIdTurno" prefWidth="75.0" text="IdTurno" visible="false" />
+            <TableColumn fx:id="colTurno" prefWidth="60.0" text="Turno" />
+            <TableColumn fx:id="colEntregado" prefWidth="70.0" text="Entregado" />
+            <TableColumn fx:id="colObservaciones" prefWidth="170.0" text="Observaciones" />
+            <TableColumn fx:id="colTiempo" prefWidth="60.0" text="Tiempo" />
+         </columns>
+      </TableView>
+      <ComboBox fx:id="cboMesas" layoutX="171.0" layoutY="9.0" onAction="#c_cboMesas" prefHeight="31.0" prefWidth="111.0" />
+      <Label layoutX="15.0" layoutY="14.0" text="Mesas Ocupadas:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTotal" layoutX="666.0" layoutY="11.0" prefHeight="27.0" prefWidth="101.0" text="0">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="702.0" layoutY="442.0" mnemonicParsing="false" onAction="#c_btnCuenta" prefHeight="39.0" prefWidth="122.0" style="-fx-background-color: GREEN; -fx-text-fill: WHITE;" text="Cobrar Cuenta">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <RadioButton fx:id="rbTotal" layoutX="366.0" layoutY="441.0" mnemonicParsing="false" onAction="#c_rbTotal" selected="true" text="Cuenta TOTAL">
+         <toggleGroup>
+            <ToggleGroup fx:id="ventaGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbIndividual" layoutX="366.0" layoutY="466.0" mnemonicParsing="false" onAction="#c_rbIndividual" text="Cuenta PARCIAL" toggleGroup="$ventaGroup" />
+      <Label fx:id="lblNoCliente" layoutX="571.0" layoutY="440.0" text="Cliente No.?" />
+      <TextField fx:id="tfNoCliente" layoutX="574.0" layoutY="458.0" prefHeight="25.0" prefWidth="57.0" />
+      <Label layoutX="533.0" layoutY="11.0" prefHeight="27.0" prefWidth="133.0" text="Importe Total:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="8.0" layoutY="442.0" mnemonicParsing="false" onAction="#c_btnCancelar" prefHeight="39.0" prefWidth="122.0" style="-fx-background-color: ORANGE;" text="CANCELAR MESA">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

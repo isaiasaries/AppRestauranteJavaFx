@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="333.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ClientesController">
+   <children>
+      <Button fx:id="btnNuevo" layoutX="274.0" layoutY="299.0" mnemonicParsing="false" onAction="#c_btnNuevo" text="Nuevo" />
+      <Button layoutX="13.0" layoutY="299.0" mnemonicParsing="false" onAction="#c_btnEliminar" text="Eliminar" />
+      <Button layoutX="135.0" layoutY="299.0" mnemonicParsing="false" onAction="#c_btnModificar" text="Modificar" />
+      <Button fx:id="btnGuardar" defaultButton="true" layoutX="270.0" layoutY="299.0" mnemonicParsing="false" onAction="#c_btnGuardar" onMouseExited="#onMouseOut" text="Guardar" />
+      <TextField fx:id="tfNombre" layoutX="11.0" layoutY="22.0" prefHeight="26.0" prefWidth="147.0" />
+      <Label layoutX="58.0" layoutY="1.0" text="Nombre (s)" />
+      <TableView fx:id="tvClientes" layoutX="8.0" layoutY="74.0" onMouseClicked="#onMouseClicked" prefHeight="222.0" prefWidth="321.0">
+         <columns>
+            <TableColumn fx:id="colClave" prefWidth="40.0" text="Clave" visible="false" />
+            <TableColumn fx:id="colNombre" prefWidth="150.0" text="Nombre" />
+            <TableColumn fx:id="colDatos" prefWidth="150.0" text="Datos" />
+         </columns>
+      </TableView>
+      <TextField fx:id="tfClave" layoutX="42.0" layoutY="52.0" prefHeight="11.0" prefWidth="19.0" visible="false" />
+      <Label fx:id="lblMensaje" alignment="CENTER" layoutX="8.0" layoutY="51.0" prefHeight="26.0" prefWidth="322.0" textAlignment="CENTER" textFill="#dd0000">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfDatos" layoutX="171.0" layoutY="22.0" prefHeight="26.0" prefWidth="147.0" />
+      <Label layoutX="197.0" layoutY="1.0" text="Datos Adicionales" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VentasporPlatilloRango" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9de319a5-4e5c-4fe2-acf1-afe00056807d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="346"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="649"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ELMezquite"/>
+	<parameter name="FechaIni" class="java.lang.String"/>
+	<parameter name="FechaFin" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT det_orden.`idMenu`,
+	menu.`descripcionMenu`,
+	sum( det_orden.cantidad) AS Vendidos,
+	avg( det_orden.precio) AS precio,
+	ordenes.fecha
+FROM menu
+	INNER JOIN det_orden ON 
+	 det_orden.`idMenu` = menu.idmenu 
+	INNER JOIN ordenes ON 
+	 ordenes.`idOrdenes` = det_orden.`idOrdenes` 
+WHERE 
+	 DATE(ordenes.fecha) BETWEEN $P{FechaIni} AND $P{FechaFin} 
+GROUP BY det_orden.`idMenu`
+ORDER BY Vendidos DESC]]>
+	</queryString>
+	<field name="idMenu" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="idMenu"/>
+		<property name="com.jaspersoft.studio.field.label" value="idMenu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="det_orden"/>
+	</field>
+	<field name="descripcionMenu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="descripcionMenu"/>
+		<property name="com.jaspersoft.studio.field.label" value="descripcionMenu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="menu"/>
+	</field>
+	<field name="Vendidos" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="Vendidos"/>
+		<property name="com.jaspersoft.studio.field.label" value="Vendidos"/>
+	</field>
+	<field name="precio" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="precio"/>
+		<property name="com.jaspersoft.studio.field.label" value="precio"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="7" width="360" height="33" uuid="12efcf53-ab60-47d0-9aaf-4745dec0811f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Restaurante "El Mezquite"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="40" width="220" height="22" uuid="30efc459-229f-4964-901d-11add8c4ea29"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Ventas por Platillo por Rango]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="217" y="62" width="126" height="20" uuid="9883a105-589e-44f4-918c-634a5f092403"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="300" y="0" width="113" height="15" uuid="ecd55397-a13c-4f59-bdda-f8851c7003f5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FechaFin}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="240" y="0" width="60" height="15" uuid="b712febe-b6c0-4122-b6a5-b86067def632">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="98d86172-ebaf-46a6-abcc-5b9de9708fdd"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Fecha Inicial:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="0" width="100" height="15" uuid="996ad39e-e6a9-4ad7-b96d-0e40fa129e1f"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FechaIni}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="60" height="15" uuid="3d6bb375-2f53-4189-af64-025b8768e230">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="98d86172-ebaf-46a6-abcc-5b9de9708fdd"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Fecha Inicial:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="4" width="200" height="15" uuid="5ead182f-141e-49b7-b481-83471ca8c374">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="008b9bda-9c83-4e2c-bd89-c7a0b068dc97"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Platillo o Bebida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="4" width="60" height="15" uuid="5fb10725-3a25-4d56-ba8f-70e18bc3e626">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3daaeab5-3a29-417b-b6e6-ad6d54170113"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Vendidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="4" width="70" height="15" uuid="45fd3a8d-b39b-4a62-9f15-0e09a7b2fbc5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0470320-f6ef-486d-8626-50046c82467e"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="4" width="70" height="15" uuid="09748f7b-b33c-40a9-91fc-5337720c7b6c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0470320-f6ef-486d-8626-50046c82467e"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="50" height="15" uuid="afca7538-4a0d-4df5-b035-58b9290d57ae">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="008b9bda-9c83-4e2c-bd89-c7a0b068dc97"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{idMenu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="0" width="150" height="15" uuid="e91b3bf4-fc23-46f1-abf9-2e6afc5c8930">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="43ac0434-e37f-4e1a-b381-6ae869a9253a"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{descripcionMenu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="60" height="15" uuid="aefa8e98-f717-4133-8863-7a497dd9660c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3daaeab5-3a29-417b-b6e6-ad6d54170113"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{Vendidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="70" height="15" uuid="91b1ebe5-d5a1-424d-9197-551992089bed">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0470320-f6ef-486d-8626-50046c82467e"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="70" height="15" uuid="77ba7d9a-0a98-444a-8f7d-5896f619361d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0470320-f6ef-486d-8626-50046c82467e"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{Vendidos} * $F{precio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

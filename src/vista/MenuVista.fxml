@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="471.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MenuController">
+   <children>
+      <TextField fx:id="tfDescripcion" layoutX="76.0" layoutY="9.0" prefWidth="204.0" />
+      <TextField fx:id="tfPrecio" layoutX="76.0" layoutY="46.0" prefWidth="52.0" />
+      <ComboBox fx:id="cmbCategoria" layoutX="424.0" layoutY="8.0" prefWidth="159.0" />
+      <CheckBox fx:id="chkVigente" layoutX="214.0" layoutY="50.0" mnemonicParsing="false" selected="true" text="Vigente" />
+      <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="10.0" prefHeight="22.0" prefWidth="52.0" text="Alimento:" />
+      <Label alignment="CENTER_RIGHT" layoutX="346.0" layoutY="10.0" prefHeight="22.0" prefWidth="74.0" text="Categoría" />
+      <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="47.0" prefHeight="22.0" prefWidth="52.0" text="Precio:" />
+      <TableView fx:id="tvMenu" layoutX="5.0" layoutY="110.0" onMouseClicked="#onMouseClicked" prefHeight="304.0" prefWidth="609.0">
+        <columns>
+          <TableColumn fx:id="colClave" prefWidth="40.0" text="Clave" />
+          <TableColumn fx:id="colDescripcion" prefWidth="200.0" text="Platillo o Bebida" />
+            <TableColumn fx:id="colIdCategoria" prefWidth="46.0" text="idCat" visible="false" />
+            <TableColumn fx:id="colCategoria" prefWidth="140.0" text="Categoria" />
+            <TableColumn fx:id="colPrecio" prefWidth="50.0" text="Precio" />
+            <TableColumn fx:id="colIdResponsable" prefWidth="46.0" text="Resp" visible="false" />
+            <TableColumn fx:id="colResponsable" prefWidth="100.0" text="Responsable" />
+            <TableColumn fx:id="colVigente" prefWidth="50.0" text="Vigente" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnNuevo" layoutX="528.0" layoutY="422.0" mnemonicParsing="false" onAction="#c_btnNuevo" prefHeight="41.0" prefWidth="83.0" text="Nuevo" />
+      <Button fx:id="btnGuardar" defaultButton="true" layoutX="528.0" layoutY="422.0" mnemonicParsing="false" onAction="#c_btnGuardar" onMouseExited="#onMouseOut" prefHeight="41.0" prefWidth="83.0" text="Guardar" />
+      <Button layoutX="268.0" layoutY="422.0" mnemonicParsing="false" onAction="#c_btnModificar" prefHeight="41.0" prefWidth="83.0" text="Modificar" />
+      <Button layoutX="6.0" layoutY="422.0" mnemonicParsing="false" onAction="#c_btnEliminar" prefHeight="41.0" prefWidth="83.0" text="Eliminar" />
+      <Label fx:id="lblMensaje" alignment="CENTER" layoutX="5.0" layoutY="82.0" prefHeight="22.0" prefWidth="610.0" textFill="#a40505">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="346.0" layoutY="47.0" prefHeight="22.0" prefWidth="74.0" text="Responsable" />
+      <TextField fx:id="tfIdMenu" layoutX="449.0" layoutY="45.0" prefHeight="10.0" prefWidth="22.0" />
+      <ComboBox fx:id="cboResponsable" layoutX="424.0" layoutY="45.0" prefHeight="26.0" prefWidth="159.0" />
+   </children>
+</AnchorPane>

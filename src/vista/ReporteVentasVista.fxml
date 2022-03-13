@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="607.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ReporteVentasController">
+   <children>
+      <TableView fx:id="tvVentas" layoutX="14.0" layoutY="108.0" prefHeight="421.0" prefWidth="484.0" style="-fx-background-color: #a5d6a7;">
+        <columns>
+          <TableColumn fx:id="colFolio" prefWidth="45.0" text="Folio" />
+          <TableColumn fx:id="colMesa" prefWidth="50.0" text="Mesa" />
+            <TableColumn fx:id="colCliente" prefWidth="200.0" text="Cliente" />
+            <TableColumn fx:id="colImporte" prefWidth="75.0" text="Importe" />
+            <TableColumn fx:id="colFecha" prefWidth="90.0" text="Fecha" />
+        </columns>
+      </TableView>
+      <Label fx:id="lblTotal" alignment="CENTER_RIGHT" layoutX="300.0" layoutY="537.0" prefHeight="31.0" prefWidth="85.0" text="0.0" textAlignment="RIGHT">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnImprimir" defaultButton="true" layoutX="412.0" layoutY="544.0" mnemonicParsing="false" onAction="#c_btnImprimir" prefHeight="48.0" prefWidth="85.0" text="Imprimir" />
+      <Pane layoutX="14.0" layoutY="8.0" prefHeight="86.0" prefWidth="484.0" style="-fx-background-color: #a5d6a7;">
+         <children>
+            <DatePicker fx:id="dpFechaIni" layoutX="153.0" layoutY="10.0" prefHeight="31.0" prefWidth="177.0" />
+            <DatePicker fx:id="dpFechaFin" layoutX="153.0" layoutY="49.0" prefHeight="31.0" prefWidth="177.0" />
+            <Button layoutX="342.0" layoutY="19.0" mnemonicParsing="false" onAction="#c_btnMostrar" prefHeight="48.0" prefWidth="85.0" text="Mostrar" />
+            <Label layoutX="80.0" layoutY="17.0" text="Fecha Inicial" />
+            <Label layoutX="80.0" layoutY="55.0" text="Fecha Final" />
+         </children>
+      </Pane>
+      <Button fx:id="btnCerrar" cancelButton="true" layoutX="14.0" layoutY="544.0" mnemonicParsing="false" onAction="#c_btnCerrar" prefHeight="48.0" prefWidth="85.0" text="Cerrar" />
+   </children>
+</AnchorPane>

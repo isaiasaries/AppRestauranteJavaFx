@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.SearchableComboBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="417.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ComprasController">
+   <children>
+      <Label layoutX="74.0" layoutY="13.0" text="Proveedor" />
+      <ComboBox fx:id="cboProveedor" layoutX="14.0" layoutY="38.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label fx:id="lblFolio" alignment="CENTER" layoutX="356.0" layoutY="4.0" prefHeight="35.0" prefWidth="48.0" text="001" textFill="#23049e">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dpFecha" layoutX="201.0" layoutY="38.0" prefHeight="25.0" prefWidth="155.0" />
+      <Label layoutX="259.0" layoutY="20.0" text="Fecha" />
+      <SearchableComboBox fx:id="cboProducto" layoutX="14.0" layoutY="103.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="58.0" layoutY="82.0" text="Producto" />
+      <TextField fx:id="tfCantidad" layoutX="201.0" layoutY="103.0" prefHeight="25.0" prefWidth="60.0" />
+      <TextField fx:id="tfPrecio" layoutX="274.0" layoutY="103.0" prefHeight="25.0" prefWidth="60.0" />
+      <Label layoutX="203.0" layoutY="82.0" text="Cantidad" />
+      <Label layoutX="284.0" layoutY="82.0" text="Precio" />
+      <Button fx:id="btnAgregar" layoutX="347.0" layoutY="78.0" mnemonicParsing="false" onAction="#c_btnAgregar" prefHeight="35.0" prefWidth="52.0" text="+">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tvCompras" layoutX="14.0" layoutY="141.0" onMouseClicked="#onMouseCliked" prefHeight="200.0" prefWidth="385.0">
+        <columns>
+          <TableColumn fx:id="colIdC" prefWidth="40.0" text="Com" visible="false" />
+            <TableColumn fx:id="colIdM" prefWidth="40.0" text="Men" visible="false" />
+          <TableColumn fx:id="colMenu" prefWidth="150.0" text="Producto" />
+            <TableColumn fx:id="colCantidad" prefWidth="60.0" text="Cantidad" />
+            <TableColumn fx:id="colPrecio" prefWidth="60.0" text="Precio" />
+            <TableColumn fx:id="colImporte" prefWidth="60.0" text="Importe" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnGuardar" defaultButton="true" layoutX="177.0" layoutY="382.0" mnemonicParsing="false" onAction="#c_btnGuardar" text="Guardar" />
+      <Label fx:id="lblImporte" alignment="CENTER_RIGHT" layoutX="334.0" layoutY="348.0" prefHeight="20.0" prefWidth="59.0" text="\$0.0" textAlignment="RIGHT" textFill="#0701bf">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

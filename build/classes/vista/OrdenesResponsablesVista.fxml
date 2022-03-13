@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="518.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.OrdenesResponsablesController">
+   <children>
+      <TableView fx:id="tvOrdenes" layoutX="15.0" layoutY="70.0" onMouseClicked="#tvOnMouseClicked" prefHeight="426.0" prefWidth="774.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
+         <columns>
+            <TableColumn fx:id="colIdMesa" prefWidth="40.0" resizable="false" text="Mesa" />
+            <TableColumn fx:id="colCantClientes" prefWidth="60.0" text="CantClientes" visible="false" />
+            <TableColumn fx:id="colCliente" prefWidth="50.0" resizable="false" text="Cliente" />
+            <TableColumn fx:id="colClave" prefWidth="75.0" text="Clave" visible="false" />
+            <TableColumn fx:id="colPlatillo" prefWidth="220.0" resizable="false" text="Platillo o Bebida" />
+            <TableColumn fx:id="colPrecio" prefWidth="60.0" text="Precio" visible="false" />
+            <TableColumn fx:id="colCantidad" prefWidth="60.0" resizable="false" text="Cantidad" />
+            <TableColumn fx:id="colImporte" prefWidth="60.0" text="Importe" visible="false" />
+            <TableColumn fx:id="colIdTurno" prefWidth="75.0" text="IdTurno" visible="false" />
+            <TableColumn fx:id="colTurno" prefWidth="75.0" resizable="false" text="Turno" />
+            <TableColumn fx:id="colEntregado" prefWidth="75.0" resizable="false" text="Entregado" />
+            <TableColumn fx:id="colObservaciones" prefWidth="900.0" text="Observaciones" />
+         </columns>
+      </TableView>
+      <ComboBox fx:id="cboResponsables" layoutX="270.0" layoutY="15.0" onAction="#c_cboResponsables" prefHeight="31.0" prefWidth="234.0" />
+      <Label layoutX="15.0" layoutY="20.0" text="Encargado de Elaboración:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

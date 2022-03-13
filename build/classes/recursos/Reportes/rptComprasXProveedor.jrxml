@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptComprasXProveedor" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="4f87f567-9324-4df3-9e77-a5197a4ba4fa">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="324"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="671"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ELMezquite"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT c.idproveedor, p.nombreProveedor, MONTHNAME(fechacompra) as mes,  sum(c.importeTotal) as total
+FROM compras as c
+inner join proveedores as p on p.idproveedor = c.idproveedor
+group by c.idproveedor, mes
+order by c.idproveedor, mes]]>
+	</queryString>
+	<field name="idproveedor" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="idproveedor"/>
+		<property name="com.jaspersoft.studio.field.label" value="idproveedor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compras"/>
+	</field>
+	<field name="nombreProveedor" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombreProveedor"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombreProveedor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="proveedores"/>
+	</field>
+	<field name="mes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="mes"/>
+		<property name="com.jaspersoft.studio.field.label" value="mes"/>
+	</field>
+	<field name="total" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="total"/>
+		<property name="com.jaspersoft.studio.field.label" value="total"/>
+	</field>
+	<variable name="total1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{idproveedor}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement x="20" y="0" width="110" height="20" uuid="30433305-4bde-470e-acc2-41b124f38e37"/>
+					<textFieldExpression><![CDATA[$F{nombreProveedor}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="0" width="20" height="20" uuid="cc79c9e0-986c-4705-8672-ad8a3f13e72d"/>
+					<textFieldExpression><![CDATA[$F{idproveedor}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement x="158" y="46" width="222" height="22" uuid="24cda3ec-d42a-43e0-b40c-f6fefc6b4725"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Monto de Compras al mes por Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="13" width="380" height="33" uuid="93653cab-feeb-4a53-8e62-1912fe5fd7a9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="25"/>
+				</textElement>
+				<text><![CDATA[Restaurante "El Mezquite"]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="280" y="68" width="100" height="14" uuid="e0dcf5ea-09d6-4aff-8144-d655ad8efd30"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="11" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="19" splitType="Stretch">
+			<staticText>
+				<reportElement x="130" y="1" width="60" height="18" uuid="3d20cc95-c7b2-470f-b90d-be8b0a38ccc9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3b3faea-4991-498d-866e-3dad486f9f7b"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Mes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="1" width="80" height="18" uuid="b3786eb6-5bd5-45ea-9e65-196316abdc57">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a60f6fa9-6184-4348-b92f-b6b3ecc9c323"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1" width="130" height="18" uuid="e07fd577-56f8-44a7-a83a-79765851fc20">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3b3faea-4991-498d-866e-3dad486f9f7b"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Proveedor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="190" y="0" width="80" height="20" uuid="bf0d351d-bded-4a19-9962-0535df2f46f6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a60f6fa9-6184-4348-b92f-b6b3ecc9c323"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="60" height="20" uuid="d572f92b-55cb-40de-a1fe-3edcd94a4b5b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3b3faea-4991-498d-866e-3dad486f9f7b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20">
+			<textField>
+				<reportElement x="190" y="1" width="80" height="18" uuid="c0b5be71-82a1-4c4e-8a3d-56ad8b9e862e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{total1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="1" width="60" height="18" uuid="0fe482ba-9db0-4e49-b416-d9da69d96abd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3b3faea-4991-498d-866e-3dad486f9f7b"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total: ]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

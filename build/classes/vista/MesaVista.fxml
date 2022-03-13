@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="369.0" prefWidth="256.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MesaController">
+   <children>
+      <TextField fx:id="tfNombre" layoutX="55.0" layoutY="29.0" prefHeight="26.0" prefWidth="147.0" />
+      <TableView fx:id="tvMesas" layoutX="13.0" layoutY="90.0" onMouseClicked="#onMouseCliked" prefHeight="234.0" prefWidth="230.0">
+         <columns>
+            <TableColumn fx:id="colClave" prefWidth="40.0" text="Clave" />
+            <TableColumn fx:id="colMesa" prefWidth="120.0" text="Mesa" />
+            <TableColumn fx:id="colEstado" prefWidth="50.0" text="Estado" />
+         </columns>
+      </TableView>
+      <Label layoutX="77.0" layoutY="10.0" text="Nombre de la Mesa" />
+      <TextField fx:id="tfClave" layoutX="32.0" layoutY="42.0" prefHeight="11.0" prefWidth="19.0" visible="false" />
+      <Button fx:id="btnNuevo" layoutX="188.0" layoutY="333.0" mnemonicParsing="false" onAction="#c_btnNuevo" text="Nuevo" />
+      <Button layoutX="96.0" layoutY="333.0" mnemonicParsing="false" onAction="#c_btnModificar" text="Modificar" />
+      <Button layoutX="12.0" layoutY="333.0" mnemonicParsing="false" onAction="#c_btnEliminar" text="Eliminar" />
+      <Label fx:id="lblMensaje" alignment="CENTER" layoutX="14.0" layoutY="62.0" prefHeight="31.0" prefWidth="230.0" textAlignment="CENTER" textFill="#dd0000">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnGuardar" defaultButton="true" layoutX="184.0" layoutY="333.0" mnemonicParsing="false" onAction="#c_btnGuardar" onMouseExited="#onMouseOut" text="Guardar" />
+   </children>
+</AnchorPane>
